@@ -6,11 +6,12 @@ The intended execution environment is qemu-system-arm on a Linux host. To build:
 ```
 git clone https://github.com/Yuan-Che/baremetal-lwip.git
 cd baremetal-lwip
+mkdir bin
 make
 ```
 Next, use this script to bring up a TAP interface to create a bridge between Linux and QEMU's network interfaces. Change the ethernet interface name and settings in the script to match yours.
 ```
-sudo ./qemu-ifup tap0 eth0
+sudo ./qemu-ifup tap0 enp0s3
 ```
 Then bring up the qemu machine (requires root to use the qemu tap backend)
 ```
@@ -26,7 +27,7 @@ PING 10.0.2.99 (10.0.2.99) 56(84) bytes of data.
 ```
 Exit qemu (Ctrl-A X) and bring down the bridge when finished:
 ```
-sudo ./qemu-ifdown tap0 eth0
+sudo ./qemu-ifdown tap0 enp0s3
 ```
 
 # TODO
