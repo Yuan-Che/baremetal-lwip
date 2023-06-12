@@ -1,7 +1,9 @@
 #!/bin/bash 
-brctl delif br0 tap0
-tunctl -d tap0
-brctl delif br0 enp0s31f6
+TAPNAME=$1
+ETHNAME=$2
+brctl delif br0 $TAPNAME
+tunctl -d $TAPNAME
+brctl delif br0 $ETHNAME
 ifconfig br0 down
 brctl delbr br0
 

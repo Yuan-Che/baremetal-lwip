@@ -14,7 +14,7 @@ CFLAGS  = -mcpu=$(CPU) -I $(LIBCINC) -I $(PLATFORM_DIR)
 ASFLAGS = -mcpu=$(CPU)
 QEMU    = qemu-system-arm
 QFLAGS  = -M versatilepb -m 128M -nographic
-QNET    = -net nic -net dump,file=vm0.pcap -net tap,ifname=tap0
+QNET    = -net nic -net tap,ifname=tap0
 
 BIN_DIR      = ./bin
 APP_DIR      = ./app
